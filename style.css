@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, 'Inter', Roboto, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    padding: 20px;
+}
+
+.main {
+    width: 900px;
+    max-width: 100%;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 40px 32px 48px 32px;
+    transition: all 0.2s ease;
+}
+
+.main > input {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    padding: 16px 20px;
+    font-size: 1rem;
+    border-radius: 60px;
+    transition: all 0.2s ease;
+    font-family: 'Segoe UI', monospace;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.main > input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.main > input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.main > button {
+    width: 100%;
+    background: #1e293b;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 16px;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+}
+
+.main > button:hover {
+    background: #0f172a;
+    transform: translateY(-1px);
+}
+
+.main > button:active {
+    background: #0f172a;
+    transform: translateY(1px);
+}
+
+.mainbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    height: auto;
+}
+
+.box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 20px 16px;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e293b;
+    transition: all 0.2s;
+    word-break: break-word;
+}
+
+.box:hover {
+    border-color: #cbd5e1;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Добавляем "заголовки" к каждому блоку через псевдоэлементы для ясности */
+.box::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+/* Назначаем подписи для каждого блока */
+.box:first-child::before {
+    content: "Номер";
+}
+
+.box:nth-child(2)::before {
+    content: "Оператор";
+}
+
+.box:nth-child(3)::before {
+    content: "Регион";
+}
+
+.box:nth-child(4)::before {
+    content: "Прошлый номер";
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 640px) {
+    .main {
+        padding: 24px 20px 32px 20px;
+    }
+    
+    .mainbox {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    
+    .box {
+        padding: 16px;
+    }
+}
